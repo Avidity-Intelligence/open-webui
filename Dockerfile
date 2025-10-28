@@ -21,13 +21,18 @@ ARG UID=0
 ARG GID=0
 
 ######## WebUI frontend ########
-FROM --platform=$BUILDPLATFORM node:22-alpine3.20 AS build
+FROM node:22-alpine3.20 AS build
 ARG BUILD_HASH
 
+ENV APP_BUILD_HASH=${BUILD_HASH}
 WORKDIR /app
 
 # to store git revision in build
-RUN apk add --no-cache git
+RUN apk add --no-cache git && \
+    git config --global --add safe.directory /app && \
+    git config --global --add safe.directory /workspace
+
+RUN git config --global --add safe.directory /workspace
 
 COPY package.json package-lock.json ./
 RUN npm ci --force

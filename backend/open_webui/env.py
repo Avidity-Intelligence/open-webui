@@ -108,7 +108,7 @@ log.setLevel(SRC_LOG_LEVELS["CONFIG"])
 
 WEBUI_NAME = os.environ.get("WEBUI_NAME", "Tier 1 AvidGPT")
 if WEBUI_NAME != "Tier 1 AvidGPT":
-    WEBUI_NAME += " (Tier 1 AvidGPT)")
+    WEBUI_NAME += " (Tier 1 AvidGPT)"
 
 WEBUI_FAVICON_URL = "https://openwebui.com/favicon.png"
 

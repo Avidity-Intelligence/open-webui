@@ -1,0 +1,169 @@
+id: /subscriptions/f53c482f-dfc7-42f7-b1fc-35ed9b4387c0/resourceGroups/rg-ai-apps/providers/Microsoft.App/containerapps/avidgpt
+identity:
+  type: None
+location: West US 2
+name: avidgpt
+properties:
+  configuration:
+    activeRevisionsMode: Single
+    dapr: null
+    identitySettings: []
+    ingress:
+      additionalPortMappings: null
+      allowInsecure: false
+      clientCertificateMode: null
+      corsPolicy: null
+      customDomains: null
+      exposedPort: 0
+      external: true
+      fqdn: avidgpt.orangesmoke-daabe4c2.westus2.azurecontainerapps.io
+      ipSecurityRestrictions: null
+      stickySessions: null
+      targetPort: 8080
+      targetPortHttpScheme: null
+      traffic:
+      - latestRevision: true
+        weight: 100
+      transport: Auto
+    maxInactiveRevisions: 100
+    registries:
+    - identity: ''
+      passwordSecretRef: aiappscr-a5cvcxfufxhbehbaazurecrio-aiappscr
+      server: aiappscr-a5cvcxfufxhbehba.azurecr.io
+      username: aiappscr
+    revisionTransitionThreshold: null
+    runtime: null
+    secrets:
+    - name: aiappscr-a5cvcxfufxhbehbaazurecrio-aiappscr
+    service: null
+    targetLabel: ''
+  customDomainVerificationId: EB6976B9EA6A0F4AAB620C344EF83BB281D1BB92932980E2EA1D275AF56FD97F
+  delegatedIdentities: []
+  environmentId: /subscriptions/f53c482f-dfc7-42f7-b1fc-35ed9b4387c0/resourceGroups/rg-ai-apps/providers/Microsoft.App/managedEnvironments/env-ai-apps
+  eventStreamEndpoint: https://westus2.azurecontainerapps.dev/subscriptions/f53c482f-dfc7-42f7-b1fc-35ed9b4387c0/resourceGroups/rg-ai-apps/containerApps/avidgpt/eventstream
+  latestReadyRevisionName: avidgpt--main2
+  latestRevisionFqdn: avidgpt--main2.orangesmoke-daabe4c2.westus2.azurecontainerapps.io
+  latestRevisionName: avidgpt--main2
+  managedEnvironmentId: /subscriptions/f53c482f-dfc7-42f7-b1fc-35ed9b4387c0/resourceGroups/rg-ai-apps/providers/Microsoft.App/managedEnvironments/env-ai-apps
+  outboundIpAddresses:
+  - 20.115.194.124
+  - 20.115.194.128
+  - 4.149.180.200
+  - 4.149.180.226
+  - 4.149.180.199
+  - 4.149.180.180
+  - 4.149.180.182
+  - 4.149.180.147
+  - 4.149.180.173
+  - 4.149.180.193
+  - 4.149.180.197
+  - 4.149.176.15
+  - 20.115.194.137
+  - 20.64.134.21
+  - 172.179.51.54
+  - 4.155.95.38
+  - 20.3.46.41
+  - 20.3.35.8
+  - 4.155.93.184
+  - 20.115.194.126
+  - 20.29.134.80
+  - 20.29.134.79
+  - 20.29.134.41
+  - 20.29.134.75
+  - 20.29.132.146
+  - 20.29.134.12
+  - 20.69.82.220
+  - 20.69.83.13
+  - 4.149.134.120
+  - 4.149.134.146
+  - 4.149.133.111
+  - 4.149.134.145
+  - 4.149.133.205
+  - 4.149.133.144
+  - 4.149.132.135
+  - 4.149.132.138
+  - 4.149.133.20
+  - 4.149.135.62
+  - 20.69.83.5
+  - 20.29.139.120
+  - 4.246.51.190
+  - 4.149.66.153
+  - 4.242.107.55
+  - 4.154.251.118
+  - 4.246.4.169
+  - 20.69.83.46
+  - 20.115.200.188
+  - 20.115.201.160
+  - 20.115.201.51
+  - 20.115.201.152
+  - 20.115.201.28
+  - 20.115.201.167
+  - 4.155.181.174
+  patchingMode: Automatic
+  provisioningState: Succeeded
+  runningStatus: Running
+  template:
+    containers:
+    - image: aiappscr-a5cvcxfufxhbehba.azurecr.io/tier1avidgpt:latest
+      imageType: ContainerImage
+      name: avidgpt
+      probes: []
+      resources:
+        cpu: 2
+        ephemeralStorage: 8Gi
+        memory: 4Gi
+      volumeMounts:
+      - mountPath: /app/backend/data
+        volumeName: avidgpt-storage
+      env:
+      - name: WEBUI_SESSION_COOKIE_SAME_SITE
+        value: lax
+      - name: WEBUI_SESSION_COOKIE_SECURE
+        value: "true"
+      - name: WEBUI_SECRET_KEY
+        value: "8f21baa0b26d91764d61189b306d2004a56b7276dd996ad4b0366e9ab11002ba"
+      - name: ENABLE_LOGIN_FORM
+        value: "false"
+      - name: OAUTH_CLIENT_ID
+        value: "0oap3tl5yr1WxHhIB1d7"
+      - name: OAUTH_CLIENT_SECRET
+        value: "kW0iWyQiyMCEMW3gJEtYUd-KJL3PNaeK6djvMeJsNdYCMpRf_v1AUdURfg8t8opB"
+      - name: OPENID_REDIRECT_URI
+        value: "https://avidgpt.orangesmoke-daabe4c2.westus2.azurecontainerapps.io/oauth/oidc/callback"
+      - name: OAUTH_SCOPE
+        value: "openid profile email"
+      - name: OAUTH_PROVIDER_NAME
+        value: "Okta"
+      - name: OPENID_PROVIDER_URL
+        value: "https://avidity.oktapreview.com/.well-known/openid-configuration"
+      - name: ENABLE_OAUTH_SIGNUP
+        value: "true"
+      - name: OAUTH_MERGE_ACCOUNTS_BY_EMAIL
+        value: "true"
+      - name: OAUTH_ALLOW_IDP_INITIATED
+        value: "true"
+    initContainers: null
+    revisionSuffix: oauth13
+    scale:
+      cooldownPeriod: 300
+      maxReplicas: 1
+      minReplicas: 1
+      pollingInterval: 30
+      rules: null
+    serviceBinds: null
+    terminationGracePeriodSeconds: null
+    volumes:
+    - mountOptions: nobrl
+      name: avidgpt-storage
+      storageName: avidgpt-storage
+      storageType: AzureFile
+  workloadProfileName: Consumption
+resourceGroup: rg-ai-apps
+systemData:
+  createdAt: '2025-08-11T17:57:12.2310359'
+  createdBy: david.vigh@aviditybio.com
+  createdByType: User
+  lastModifiedAt: '2025-08-11T18:58:52.9508645'
+  lastModifiedBy: david.vigh@aviditybio.com
+  lastModifiedByType: User
+type: Microsoft.App/containerApps
